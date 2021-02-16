@@ -1,0 +1,198 @@
+/* =========================
+    Elements
+  ========================= */
+
+.page-container {
+  min-height: 100vh;
+  padding-top: $header-height;
+}
+  
+.page-bg {
+  position: relative;
+  padding-bottom: 10px;
+  background-color: $color-main;
+  z-index: 100;
+}
+  
+.ps {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+}
+
+// ==== Text ==== //
+
+.text-btn {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.trans-color {
+  transition: color .2s;
+}
+
+.text-color-s {
+  color: $text-color-s;
+}
+
+.text-color-d {
+  color: $text-color-g;
+}
+
+.text-color-r {
+  color: $text-color-r;
+}
+
+.text-color-w {
+  color: $color-main;
+}
+
+.text-color-gd {
+  color: $text-color-gd;
+}
+
+// ==== Flex ==== //
+
+.fx-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// ==== Screen ==== //
+
+.screen {
+  position: relative;
+  height: 100vh;
+
+  &.screen-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    transform: translateZ(0) translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+}
+
+.screen-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.screen-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// ==== Border Column ==== //
+
+.br-top,
+.br-top-end,
+.col-br-top,
+.col-br-top-end {
+  position: relative;
+
+  &::before, &::after {
+    @extend .ps;
+    height: 1px;
+    left: 5px;
+    right: -5px;
+    background-color: $color-border;
+
+    @include mobile {
+      right: 5px;
+    }
+  }
+
+  &.col-br-d {
+
+    &::before, &::after {
+      background-color: $color-border-d;
+    }
+  }
+
+  &::after {
+    display: none;
+    top: auto;
+    bottom: 0;
+  }
+
+  &.br-double::after,
+  &.col-br-double::after {
+    display: block;
+  }
+
+  &.col-br-top-end::before,
+  &.col-br-top-end::after {
+    right: 5px;
+  }
+}
+
+// .br-top:not(.br-double)::after,
+// .col-br-top:not(.br-double)::after {
+//   display: none;
+// }
+
+.br-top {
+
+  &::before, &::after {
+    left: 0;
+    right: -10px;
+
+    @include mobile {
+      right: 0;
+    }
+  }
+}
+
+.br-top-end {
+
+  &::before, &::after {
+    right: 0;
+  }
+}
+
+// ==== Others ==== //
+
+.section {
+  position: relative;
+  z-index: 100;
+}
+
+.br {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.bb {
+  border-bottom: 1px solid $color-border;
+}
+
+.bt {
+  border-top: 1px solid $color-border;
+}
+
+.bb-d {
+  border-bottom: 1px solid $color-border-d;
+}
+
+.ha {
+  height: auto;
+}
+
+.bg-dark {
+  background-color: $color-black;
+}
+
+.jcc {
+  justify-content: center;
+}
